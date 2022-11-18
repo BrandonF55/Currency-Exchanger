@@ -1,15 +1,15 @@
 
 export default class CurrencyService {  
-static getCurrency(Currency) {
+static getCurrency(currency, usd) {
   return new Promise(function(resolve, reject) {
     let request = XMLHttpRequest();
-    const url = `https://v6.exchangerate-api.com/v6/4c65401b2928655b81d991c8/latest/USD`
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${currency}/${usd}`
     request.addEventListener("loadend", function() {
-      const response = json.parse(this.responseText);
+      const response = JSON.parse(this.responseText);
       if ( this.status === 200){
-        resolve([response, Currency]);
+        resolve([response, currency, usd]);
       } else {
-        reject([this, response, Currency]);
+        reject([this, response, currency, usd]);
         console.log(response);
       }
     });
