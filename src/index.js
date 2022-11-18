@@ -20,7 +20,7 @@ function getCurrency(currency){
 
 function printElements(){
   document.querySelector("#output").innerHTML = `The exchange in USD to ${conversion_rates.AED} is " " `
-}
+} 
 
 
 function printError(){

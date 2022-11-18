@@ -10,9 +10,11 @@ static getCurrency(Currency) {
         resolve([response, Currency]);
       } else {
         reject([this, response, Currency]);
+        console.log(response);
       }
     });
-request.open("GET", url, true);
-request.sent();
+    request.open("GET", url, true);
+    request.sent();
     });
   }
+}
